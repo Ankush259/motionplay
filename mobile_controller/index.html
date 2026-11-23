@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MotionPlay Controller</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo">Motion<span>Play</span></h1>
+        
+        <button id="connect-btn" class="primary-btn">Enable Sensors</button>
+        
+        <div id="status-panel" class="status disconnected">Status: Waiting for connection...</div>
+
+        <div class="sensor-grid">
+            <div class="sensor-card">
+                <span class="label">Beta (Front/Back)</span>
+                <span class="value" id="val-beta">0°</span>
+            </div>
+            <div class="sensor-card">
+                <span class="label">Gamma (Left/Right)</span>
+                <span class="value" id="val-gamma">0°</span>
+            </div>
+            <div class="sensor-card">
+                <span class="label">Alpha (Compass)</span>
+                <span class="value" id="val-alpha">0°</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/sensor.js"></script>
+</body>
+</html>

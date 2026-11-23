@@ -1,0 +1,14 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+body { background-color: #0f1115; color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+.container { text-align: center; width: 90%; max-width: 400px; }
+.logo { font-size: 2.5rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -1px; }
+.logo span { color: #00d2ff; }
+.primary-btn { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; width: 100%; margin-bottom: 1.5rem; }
+.primary-btn:active { transform: scale(0.95); }
+.status { font-size: 0.9rem; padding: 10px; border-radius: 8px; margin-bottom: 2rem; font-weight: 500; }
+.status.disconnected { background: rgba(255, 59, 48, 0.1); color: #ff3b30; border: 1px solid rgba(255, 59, 48, 0.2); }
+.status.connected { background: rgba(52, 199, 89, 0.1); color: #34c759; border: 1px solid rgba(52, 199, 89, 0.2); }
+.sensor-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.sensor-card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; }
+.sensor-card .label { color: #8e8e93; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+.sensor-card .value { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
