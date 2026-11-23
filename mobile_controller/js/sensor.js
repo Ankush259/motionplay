@@ -28,12 +28,8 @@ function startSensors() {
     statusPanel.textContent = "Status: Sensors Active";
     statusPanel.classList.replace('disconnected', 'connected');
 
-    window.addEventListener('deviceorientation', (event) => {
-        // event.beta: front-to-back tilt in degrees [-180, 180]
-        // event.gamma: left-to-right tilt in degrees [-90, 90]
-        // event.alpha: rotation around the z-axis (compass) [0, 360]
-        
-        // We round the numbers so they are readable, otherwise they fluctuate by decimals constantly
+    // Create a single function to handle the math
+    function handleOrientation(event) {
         const beta = Math.round(event.beta || 0);
         const gamma = Math.round(event.gamma || 0);
         const alpha = Math.round(event.alpha || 0);
@@ -41,5 +37,18 @@ function startSensors() {
         valBeta.textContent = `${beta}°`;
         valGamma.textContent = `${gamma}°`;
         valAlpha.textContent = `${alpha}°`;
-    });
+
+        // Send data to the Mac via WebSocket
+        if (window.sendSensorData) {
+            window.sendSensorData(beta, gamma, alpha);
+        }
+    }
+
+    // Android sometimes requires 'absolute', while iOS uses standard. 
+    // We will listen to whichever one the phone supports.
+    if ('ondeviceorientationabsolute' in window) {
+        window.addEventListener('deviceorientationabsolute', handleOrientation);
+    } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
 }
